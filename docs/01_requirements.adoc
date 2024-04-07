@@ -1,0 +1,20 @@
+== Requirements
+
+=== Functional Requirements
+
+* [MUST] Ability to scrape websites aggregating social media trending topics.
+* [MUST] Backend process to scrape and store data periodically, independent of user actions.
+* [MUST] A React-based user interface for desktop and mobile users, displaying pre-fetched content.
+* [WON'T] Direct scraping of social media platforms or in-depth analytics in this version.
+
+=== Technical Requirements
+
+* [MUST] Deployment on Pivotal Cloud Foundry (PCF) on GCP.
+* [MUST] Backend development in Golang.
+* [MUST] Use of both SQL and NoSQL databases for data storage.
+* [MUST] Implementation of a scheduled job for scraping.
+* [MUST] Utilization of a message queue (e.g., GCP Pub/Sub) for managing scraping tasks.
+* [MUST] Implementation of caching mechanisms for performance.
+* [SHOULD] Integration with GCP services (Cloud Storage, Pub/Sub, BigQuery).
+* [COULD] Future incorporation of machine learning algorithms.
+* [WON'T] Advanced machine learning algorithms in the first version.

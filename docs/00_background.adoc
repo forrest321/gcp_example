@@ -1,0 +1,7 @@
+= SPEC-001: Social Media Trending Topics Scraper
+:sectnums:
+:toc:
+
+== Background
+
+The project aims to develop an application that efficiently scrapes and analyzes social media platforms to identify trending topics. It will demonstrate advanced cloud-native application development skills, focusing on utilizing various Google Cloud Platform (GCP) services. Hosted on Pivotal Cloud Foundry (PCF) and utilizing Golang for backend development, the app will employ both SQL and NoSQL databases to manage different data structures. This app is designed to showcase a broad range of cloud functionalities including web scraping, data storage, and cloud-native application development, thus making it a valuable addition to a professional resume.

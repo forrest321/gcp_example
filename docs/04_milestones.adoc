@@ -1,0 +1,17 @@
+== Milestones
+
+The development of the social media trending topics scraper app will follow this accelerated timeline:
+
+1. *Backend Development Completion*: 
+   - Target Date: 4/7/2024
+   - Deliverables: Backend service with basic scraping functionality and database integration.
+
+2. *Frontend Development and GCP Services Integration*:
+   - Target Date: 4/8/2024
+   - Deliverables: Functional React-based frontend; essential GCP services like Pub/Sub and caching mechanism set up and integrated.
+
+3. *Testing, Optimization, and Deployment*:
+   - Target Date: 4/9/2024
+   - Deliverables: Completed testing and optimization; deployment of the application on PCF on GCP; basic monitoring setup.
+
+Note: This ambitious timeline is made possible by leveraging AI for code generation and a streamlined development approach. It assumes focused effort and smooth integration of components. Delays in any phase may require adjusting subsequent milestones.

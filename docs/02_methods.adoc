@@ -1,0 +1,35 @@
+== Method
+
+=== Architecture Overview
+
+The application architecture comprises two main components: a backend service developed in Golang and a frontend user interface developed in React.
+
+==== Backend Service
+
+The backend service is responsible for periodically scraping aggregated social media trending topics from specified websites and storing the data in the database. This process will be scheduled and automated, independent of user interaction.
+
+* *Scheduled Scraper*: Utilizes a cron job or a similar scheduling mechanism within PCF to trigger scraping events at regular intervals.
+* *Message Queue*: Incorporates a message queue (like GCP Pub/Sub) to manage scraping jobs, ensuring scalability and efficient handling of workload.
+* *Data Storage*: Stores scraped data in a SQL database for structured data and a NoSQL database for unstructured or semi-structured data.
+
+==== Frontend Interface
+
+The frontend, built with React, will be designed for both desktop and mobile users, displaying the latest trending topics fetched by the backend.
+
+* *User Interface*: Provides a clean, responsive interface for users to view trending topics.
+* *Data Fetching*: Retrieves data from the backend service to display up-to-date content.
+
+=== Data Flow
+
+1. The backend scraper is triggered by a scheduled job.
+2. Scraping tasks are queued and managed via the message queue.
+3. Scraped content is processed, formatted, and stored in the appropriate database.
+4. The frontend periodically fetches the latest data from the backend to display to the user.
+
+=== Caching Mechanism
+
+To enhance performance, a caching layer will be implemented. This layer will temporarily store frequently accessed data, reducing the need for repeated database queries.
+
+=== Future Enhancements
+
+* In future versions, machine learning algorithms could be introduced for advanced trend analysis and prediction.
