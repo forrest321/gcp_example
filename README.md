@@ -16,35 +16,35 @@ Goread is a command-line RSS Reader application that fetches and processes RSS f
 
 ### Installation
 1. Clone the repository:
-```shell
-git clone https://github.com/forrest321/gcp_example
-```
+  ```shell
+  git clone https://github.com/forrest321/gcp_example
+  ```
 2. Navigate to the project directory:
-```shell
-cd gcp_example
-```
+  ```shell
+  cd gcp_example
+  ```
 
 ### Building the Application
 - Run the following command to build the backend (RSS Reader):
-```shell
-make backend
-```
+  ```shell
+  make backend
+  ```
 This will compile the backend code and create a binary named `goread`.
 
 ### Running the Application
 - The compiled `goread` binary can be run with various flags to read RSS feeds:
 - To specify individual feed URLs:
-  ```
+  ```shell
   ./goread --feed "http://example.com/rss"
   ```
 - To use a configuration file:
-  ```
+  ```shell
   ./goread --config "path/to/config.yaml"
   ```
-The configuration file should follow the format defined in the `backend/rssreader` package.
-
-## Contributing
-Contributions to the project are welcome. Please ensure to follow the guidelines and code of conduct.
-
-## License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+## Configuration File Format
+The configuration file is in YAML format. Example structure:
+  ```yaml
+  feeds:
+  - url: "https://example.com/rssfeed1"
+  - url: "https://example2.com/rssfeed2"
+  ```
