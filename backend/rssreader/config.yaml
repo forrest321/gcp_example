@@ -1,0 +1,4 @@
+feeds:
+  - url: "https://example.com/rss"
+  - url: "https://anotherexample.com/feed"
+  - url: "https://somesite.com/rssfeed"
