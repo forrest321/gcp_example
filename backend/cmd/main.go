@@ -1,40 +1,27 @@
 package main
 
 import (
-	"net/http"
+	"flag"
+	"fmt"
+	"log"
+	"path/filepath"
 
-	"github.com/gin-gonic/gin"
-	"github.com/sirupsen/logrus"
-	// Import other necessary packages
+	"github.com/forrest321/gcp_example/rssreader" // Adjust the import path as necessary
 )
 
 func main() {
-	log := logrus.New()
-	log.Formatter = &logrus.TextFormatter{
-		FullTimestamp: true,
-		ForceColors:   true,
+	configPath := flag.String("config", filepath.Join("backend", "rssreader", "config.yaml"), "Path to the configuration file")
+	flag.Parse()
+
+	feeds, err := rssreader.ReadFeeds(*configPath)
+	if err != nil {
+		log.Fatalf("Error reading RSS feeds: %v", err)
 	}
 
-	r := gin.Default()
-
-	// CORS middleware setup (adjust as needed)
-	r.Use(cors.Default())
-
-	r.GET("/scrape", func(c *gin.Context) {
-		// Trigger scraping process
-		go startScrapingProcess() // Run in a goroutine so it doesn't block
-		c.JSON(http.StatusOK, gin.H{
-			"message": "Scraping started",
-		})
-	})
-
-	// Add other routes for handling CRUD operations...
-
-	log.Info("Starting server on port 8080")
-	r.Run(":8080") // listen and serve on 0.0.0.0:8080
-}
-
-func startScrapingProcess() {
-	// Implement scraping logic here
-	// ...
+	for _, feed := range feeds {
+		fmt.Printf("Feed: %s\n", feed.Title)
+		for _, item := range feed.Items {
+			fmt.Printf("Title: %s\nLink: %s\n\n", item.Title, item.Link)
+		}
+	}
 }
